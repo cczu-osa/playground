@@ -1,0 +1,221 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="language" content="zh-cn" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta http-equiv="cleartype" content="on">
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//lug.ustc.edu.cn/wiki/lib/tpl/bootstrap3/assets/bootstrap/flatly/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    @media (max-width: 767px) {
+      .text-xs-center {
+        text-align: center;
+      }
+    }
+
+    footer {
+      margin-bottom: 4vh;
+    }
+  </style>
+
+  <title>常州大学开发者协会 - 报名</title>
+</head>
+
+<body>
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-header">
+            <h1>
+              <span class="hidden-xs">常州大学开发者协会</span>
+              <span class="hidden-sm hidden-md hidden-lg">常大开发者协会</span><br>
+              <small class="hidden-xs">CCZU Developer Association (CCZU-DEV)</small>
+              <small class="hidden-sm hidden-md hidden-lg">CCZU-DEV</small>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2> > 报名表
+            <small># 带星号(*)为必填项</small>
+          </h2>
+          <form role="form" id="form" method="post" action="/api/signup2">
+            <div class="form-group">
+              <label class="control-label" for="name">姓名*</label>
+              <input class="form-control" id="name" name="name" type="text">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="intro">自我介绍*</label>
+              <!-- <input class="form-control" id="email" type="email">-->
+              <textarea class="form-control" id="intro" name="intro" type="text" rows="5" placeholder="说出你的故事！写写你自己觉得自己值得说的地方，比如学过什么编程语言或技术、有过哪些项目或实习经历等"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="git">GitHub/Coding/... 账号</label>
+              <textarea class="form-control" id="git" name="git" type="text" rows="3" placeholder="GitHub、BitBucket、Coding、GitLab 等账号，有的话就填，每行一个"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="projects">自我感觉不错的项目</label>
+              <textarea class="form-control" id="projects" name="projects" type="text" rows="5" placeholder="自己写的或参与开发的觉得不错的项目的简介，最好附上链接（如果有的话）"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="contacts">联系方式*</label>
+              <!-- <input class="form-control" id="email" type="email">-->
+              <textarea class="form-control" id="contacts" name="contacts" type="text" rows="3" placeholder="邮箱、QQ、微信、Telegram、手机号等都可以，每行一个"></textarea>
+            </div>
+            <button type="submit" class="btn btn-block btn-success">提交</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <p>
+            常州大学开发者协会（CCZU-DEV）是一个新生的技术协会，
+            <br>旨在为学校里对软件开发、硬件开发、算法、运维等计算机相关技术有狂热兴趣的朋友提供一个统一的交流平台。
+          </p>
+        </div>
+        <div class="col-sm-4 text-xs-center">
+          <p>
+            会长：<a href="https://stdrc.cc" target="_blank">钱宇超</a> <a href="mailto:richard@r-c.im">richard@r-c.im</a>
+            <br>副会长：<a href="https://www.ntzyz.cn/" target="_blank">张宇泽</a> <a href="mailto:i@ntzyz.cn">i@ntzyz.cn</a>
+          </p>
+        </div>
+        <div class="col-sm-2">
+          <!--<p class="text-info text-right">
+            <br>
+          </p>-->
+          <div class="row">
+            <div class="col-md-12 hidden-lg hidden-md hidden-sm text-center">
+              <a href="https://github.com/CCZU-DEV" target="_blank"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 hidden-xs text-right">
+              <a href="https://github.com/CCZU-DEV" target="_blank"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="modal fade" id="confirm-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">确认</h4>
+        </div>
+        <div class="modal-body" id="confirm-modal-content">
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-default" data-dismiss="modal">取消</a>
+          <a class="btn btn-success" id="confirm-btn">提交</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="wait-modal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">提交</h4>
+        </div>
+        <div class="modal-body">
+          <p>正在提交报名表，请稍等……</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="success-modal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">报名成功</h4>
+        </div>
+        <div class="modal-body" id="success-modal-content">
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-success" onclick="javascript:window.open('','_self').close();">关闭页面</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="error-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">失败</h4>
+        </div>
+        <div class="modal-body">
+          <p>Ooops……似乎有什么地方出错了，请稍后再试……</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $('#form').submit(function(e) {
+      e.preventDefault();
+      if ($('#name')[0].value.trim() == '' ||
+          $('#intro')[0].value.trim() == '' ||
+          $('#contacts')[0].value.trim() == '') {
+        $('#confirm-modal-content').html('<p>必填项没填你就想提交？？？喵喵喵？？？</p>');
+        $('#confirm-btn').attr('disabled', true);
+      } else {
+        $('#confirm-modal-content').html('<p>确定提交报名表？</p>');
+        $('#confirm-btn').attr('disabled', false);
+      }
+      $('#confirm-modal').modal('show');
+    })
+
+    $('#confirm-btn').click(function(e) {
+      e.preventDefault();
+      if ($('#confirm-btn').attr('disabled')) {
+        return;
+      }
+      $('#confirm-modal').modal('hide');
+      $('#wait-modal').modal('show');
+      $.ajax({
+        type: 'post',
+        url: 'https://dev.cczu.edu.cn/api/signup',
+        data: $('#form').serialize(),
+        success: function(data) {
+          let rcode = data.rcode;
+          let content = '<p>恭喜，你已经报名成功！</p>' +
+                        '<p>我们为你生成了一个验证码：<strong style="color: red;">' + rcode + '</strong>，此验证码后面可能多次使用，请妥善保管。</p>' +
+                        '<p>你可以通过这个验证码来加预备 QQ 群 530812134，当然，你也可以选择不加预备群，我们会通过你填写的联系方式通知你进行面试。</p>' +
+                        '<p>也可以在 <a href="https://dev.cczu.edu.cn/signup/' + rcode + '.json" target="_blank">https://dev.cczu.edu.cn/signup/' + rcode +'.json</a> 查看你的报名信息。</p>';
+          $('#success-modal-content').html(content);
+          $('#wait-modal').modal('hide');
+          $('#success-modal').modal('show');
+        },
+        error: function() {
+          $('#wait-modal').modal('hide');
+          $('#error-modal').modal('show');
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>
