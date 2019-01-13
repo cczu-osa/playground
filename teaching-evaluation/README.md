@@ -36,7 +36,7 @@ chrome_options = Options()
 chrome_options.binary_location = r'<Chrome 可执行文件路径>'
 driver = webdriver.Chrome(chrome_options=chrome_options)
 
-driver.get('http://211.65.74.101/login_gh.aspx')
+driver.get('http://202.195.102.32//login_gh.aspx')
 
 
 def wait_items_by_class_name(class_name):
